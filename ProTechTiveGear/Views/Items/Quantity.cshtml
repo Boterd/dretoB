@@ -1,0 +1,50 @@
+﻿@model ProTechTiveGear.Models.Item
+
+@{
+	ViewBag.Title = "Edit";
+	Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+<head>
+	<script src="~/Scripts/tinymce/js/tinymce/tinymce.min.js"></script>
+
+	<script>tinymce.init({ selector: 'textarea' });</script>
+	<style>
+		.editor-field textarea {
+			width: 400;
+			height: 100px;
+		}
+	</style>
+
+
+
+</head>
+<h2>Thêm số lượng</h2>
+
+<div class="form-horizontal">
+    <h4>Sản phẩm</h4>
+    <hr />
+    <form action="/Items/Quantity" method="post">
+        <div class="form-group">
+            <h5 class="control-label col-md-2">Tên</h5>
+            <div class="col-md-10">
+                <input type="text" readonly value="@Model.Name" class="form-control" />
+                <input type="hidden" value="@Model.ID" name="id" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <h5 class="control-label col-md-2">Số lượng muốn thêm</h5>
+            <div class="col-md-10">
+                <input type="number" required name="soluong" class="form-control" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Lưu" class="btn btn-default" />
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+	@Html.ActionLink("Quay lại", "Index")
+</div>
